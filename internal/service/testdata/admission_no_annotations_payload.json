@@ -1,0 +1,65 @@
+{
+  "kind": "AdmissionReview",
+  "apiVersion": "admission.k8s.io/v1",
+  "request": {
+    "uid": "11111111-2222-3333-4444-555555555555",
+    "kind": {
+      "group": "",
+      "version": "v1",
+      "kind": "ConfigMap"
+    },
+    "resource": {
+      "group": "",
+      "version": "v1",
+      "resource": "configmaps"
+    },
+    "requestKind": {
+      "group": "",
+      "version": "v1",
+      "kind": "ConfigMap"
+    },
+    "requestResource": {
+      "group": "",
+      "version": "v1",
+      "resource": "configmaps"
+    },
+    "name": "demo-cm",
+    "namespace": "default",
+    "operation": "UPDATE",
+    "userInfo": {
+      "username": "kubernetes-admin",
+      "uid": "admin",
+      "groups": [
+        "system:masters",
+        "system:authenticated"
+      ]
+    },
+    "object": {
+      "apiVersion": "v1",
+      "kind": "ConfigMap",
+      "metadata": {
+        "name": "demo-cm",
+        "namespace": "default"
+      },
+      "data": {
+        "key": "new-value"
+      }
+    },
+    "oldObject": {
+      "apiVersion": "v1",
+      "kind": "ConfigMap",
+      "metadata": {
+        "name": "demo-cm",
+        "namespace": "default"
+      },
+      "data": {
+        "key": "old-value"
+      }
+    },
+    "dryRun": false,
+    "options": {
+      "apiVersion": "meta.k8s.io/v1",
+      "kind": "UpdateOptions"
+    }
+  }
+}

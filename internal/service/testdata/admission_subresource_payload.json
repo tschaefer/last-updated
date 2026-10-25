@@ -1,0 +1,82 @@
+{
+  "kind": "AdmissionReview",
+  "apiVersion": "admission.k8s.io/v1",
+  "request": {
+    "uid": "66666666-7777-8888-9999-000000000000",
+    "kind": {
+      "group": "apps",
+      "version": "v1",
+      "kind": "Deployment"
+    },
+    "resource": {
+      "group": "apps",
+      "version": "v1",
+      "resource": "deployments"
+    },
+    "subResource": "status",
+    "requestKind": {
+      "group": "apps",
+      "version": "v1",
+      "kind": "Deployment"
+    },
+    "requestResource": {
+      "group": "apps",
+      "version": "v1",
+      "resource": "deployments"
+    },
+    "requestSubResource": "status",
+    "name": "demo-deploy",
+    "namespace": "default",
+    "operation": "UPDATE",
+    "userInfo": {
+      "username": "system:serviceaccount:kube-system:deployment-controller",
+      "uid": "controller",
+      "groups": [
+        "system:serviceaccounts",
+        "system:serviceaccounts:kube-system",
+        "system:authenticated"
+      ]
+    },
+    "object": {
+      "apiVersion": "apps/v1",
+      "kind": "Deployment",
+      "metadata": {
+        "name": "demo-deploy",
+        "namespace": "default",
+        "annotations": {
+          "example.com/last-updated": "2026-08-05T06:10:00Z"
+        }
+      },
+      "status": {
+        "replicas": 3,
+        "updatedReplicas": 3,
+        "readyReplicas": 3,
+        "availableReplicas": 3,
+        "observedGeneration": 5
+      }
+    },
+    "oldObject": {
+      "apiVersion": "apps/v1",
+      "kind": "Deployment",
+      "metadata": {
+        "name": "demo-deploy",
+        "namespace": "default",
+        "annotations": {
+          "example.com/last-updated": "2026-08-05T06:10:00Z"
+        }
+      },
+      "status": {
+        "replicas": 3,
+        "updatedReplicas": 2,
+        "readyReplicas": 2,
+        "availableReplicas": 2,
+        "observedGeneration": 5
+      }
+    },
+    "dryRun": false,
+    "options": {
+      "apiVersion": "meta.k8s.io/v1",
+      "kind": "UpdateOptions"
+    }
+  }
+}

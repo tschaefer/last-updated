@@ -1,0 +1,23 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: last-updated-webhook
+  namespace: webhook-system
+  labels:
+    app.kubernetes.io/name: "last-updated-webhook"
+    app.kubernetes.io/instance: "last-updated-webhook"
+    app.kubernetes.io/component: "service"
+    app.kubernetes.io/version: "v{{VERSION}}"
+spec:
+  namespaceSelector:
+    matchNames:
+      - webhook-system
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: "last-updated-webhook"
+  endpoints:
+    - port: metrics
+      path: /metrics
+      interval: 30s
+      scheme: http

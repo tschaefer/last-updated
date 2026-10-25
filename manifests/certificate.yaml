@@ -1,0 +1,22 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: last-updated-webhook-tls
+  namespace: webhook-system
+  labels:
+    app.kubernetes.io/name: "last-updated-webhook"
+    app.kubernetes.io/instance: "last-updated-webhook"
+    app.kubernetes.io/component: "ingress"
+    app.kubernetes.io/version: "v{{VERSION}}"
+spec:
+  secretName: last-updated-webhook-tls
+  issuerRef:
+    name: webhook-selfsigned
+    kind: Issuer
+  dnsNames:
+    - last-updated-webhook.webhook-system.svc
+    - last-updated-webhook.webhook-system.svc.cluster.local
+  subject:
+    organizations:
+      - last-updated-webhook

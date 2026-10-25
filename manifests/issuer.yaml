@@ -1,0 +1,13 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: webhook-selfsigned
+  namespace: webhook-system
+  labels:
+    app.kubernetes.io/name: "last-updated-webhook"
+    app.kubernetes.io/instance: "last-updated-webhook"
+    app.kubernetes.io/component: "ingress"
+    app.kubernetes.io/version: "v{{VERSION}}"
+spec:
+  selfSigned: {}
